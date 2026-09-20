@@ -22,7 +22,7 @@ pipeline {
 
                         stage('Deploy') {
                             steps {
-                                sh 'java -jar hello-world/target/hello-world-1.0.jar'
+                                sh 'java -cp hello-world/target/classes com.example.HelloWorld'
                             }
                         }
                     }
@@ -44,7 +44,7 @@ pipeline {
 
                         stage('Deploy') {
                             steps {
-                                sh 'java -jar hello-jenkins/target/hello-jenkins-1.0.jar'
+                                sh 'java -cp hello-jenkins/target/classes com.example.HelloJenkins'
                             }
                         }
                     }
@@ -66,7 +66,7 @@ pipeline {
 
                         stage('Deploy') {
                             steps {
-                                sh 'java -jar hello-devops/target/hello-devops-1.0.jar'
+                                sh 'java -cp hello-devops/target/classes com.example.HelloDevops'
                             }
                         }
                     }
