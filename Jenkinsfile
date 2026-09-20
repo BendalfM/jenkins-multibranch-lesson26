@@ -60,6 +60,19 @@ pipeline {
                             }
                         }
 
+                        stage('SonarQube Analysis') {
+                            steps {
+                                withSonarQubeEnv('local_sonarqube') {
+                                    sh '''
+                                        mvn -f hello-jenkins/pom.xml \
+                                        org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+                                        -Dsonar.projectKey=hello-world \
+                                        -Dsonar.projectName="Hello World"
+                                    '''
+                                }
+                            }
+                        }
+
                         stage('Deploy') {
                             steps {
                                 sh 'java -cp hello-jenkins/target/classes com.example.HelloJenkins'
@@ -84,6 +97,19 @@ pipeline {
                                 sh 'mvn -f hello-devops/pom.xml test'
                             }
                         }
+
+                        stage('SonarQube Analysis') {
+                            steps {
+                                withSonarQubeEnv('local_sonarqube') {
+                                    sh '''
+                                        mvn -f hello-devops/pom.xml \
+                                        org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+                                        -Dsonar.projectKey=hello-world \
+                                        -Dsonar.projectName="Hello World"
+                                    '''
+                                }
+                            }
+                        }  
 
                         stage('Deploy') {
                             steps {
