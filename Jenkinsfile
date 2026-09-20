@@ -7,6 +7,9 @@ pipeline {
         stage('Parallel Applications') {
             parallel {
                 stage('Hello World') {
+                    when {
+                        changeset "hello-world/**"
+                    }
                     stages {
                         stage('Build') {
                             steps {
@@ -29,6 +32,9 @@ pipeline {
                 }
 
                 stage('Hello Jenkins') {
+                    when {
+                        changeset "hello-jenkins/**"
+                    }
                     stages {
                         stage('Build') {
                             steps {
@@ -51,6 +57,9 @@ pipeline {
                 }
 
                 stage('Hello Devops') {
+                    when {
+                        changeset "hello-devops/**"
+                    }
                     stages {
                         stage('Build') {
                             steps {
