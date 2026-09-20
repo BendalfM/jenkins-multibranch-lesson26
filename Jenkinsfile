@@ -66,8 +66,8 @@ pipeline {
                                     sh '''
                                         mvn -f hello-jenkins/pom.xml \
                                         org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-                                        -Dsonar.projectKey=hello-world \
-                                        -Dsonar.projectName="Hello World"
+                                        -Dsonar.projectKey=hello-jenkins \
+                                        -Dsonar.projectName="hello-jenkins"
                                     '''
                                 }
                             }
@@ -104,8 +104,8 @@ pipeline {
                                     sh '''
                                         mvn -f hello-devops/pom.xml \
                                         org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-                                        -Dsonar.projectKey=hello-world \
-                                        -Dsonar.projectName="Hello World"
+                                        -Dsonar.projectKey=hello-devops \
+                                        -Dsonar.projectName="hello-devops"
                                     '''
                                 }
                             }
