@@ -27,7 +27,7 @@ pipeline {
                                 withSonarQubeEnv('local_sonarqube') {
                                     sh '''
                                         mvn -f hello-world/pom.xml \
-                                        sonar:sonar \
+                                        org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
                                         -Dsonar.projectKey=hello-world \
                                         -Dsonar.projectName="Hello World"
                                     '''
