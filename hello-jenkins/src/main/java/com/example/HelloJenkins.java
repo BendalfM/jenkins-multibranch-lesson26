@@ -2,6 +2,6 @@ package com.example;
 
 public class HelloJenkins {
     public static void main(String[] args) {
-        System.out.println("Hello Jenkins! v3");
+        System.out.println("Hello Jenkins! v4");
     }
 }

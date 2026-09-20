@@ -2,6 +2,6 @@ package com.example;
 
 public class HelloDevops {
     public static void main(String[] args) {
-        System.out.println("Hello Devops! v3");
+        System.out.println("Hello Devops! v4");
     }
 }
