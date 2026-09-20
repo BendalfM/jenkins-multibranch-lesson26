@@ -8,7 +8,11 @@ pipeline {
             parallel {
                 stage('Hello World') {
                     when {
-                        changeset "hello-world/**"
+                        AnyOf {
+                            changeset "hello-world/**"
+                            expression {
+                                currentBuild.previousBuild == null
+                            }
                     }
                     stages {
                         stage('Build') {
@@ -33,7 +37,11 @@ pipeline {
 
                 stage('Hello Jenkins') {
                     when {
-                        changeset "hello-jenkins/**"
+                        AnyOf {
+                            changeset "hello-jenkins/**"
+                            expression {
+                                currentBuild.previousBuild == null
+                            }
                     }
                     stages {
                         stage('Build') {
@@ -58,7 +66,11 @@ pipeline {
 
                 stage('Hello Devops') {
                     when {
-                        changeset "hello-devops/**"
+                        AnyOf {
+                            changeset "hello-devops/**"
+                            expression {
+                                currentBuild.previousBuild == null
+                            }
                     }
                     stages {
                         stage('Build') {
