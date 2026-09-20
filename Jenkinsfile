@@ -22,6 +22,18 @@ pipeline {
                                 sh 'mvn -f hello-world/pom.xml test'
                             }
                         }
+                        stage('SonarQube Analysis') {
+                            steps {
+                                withSonarQubeEnv('local_sonarqube') {
+                                    sh '''
+                                        mvn -f hello-world/pom.xml \
+                                        sonar:sonar \
+                                        -Dsonar.projectKey=hello-world \
+                                        -Dsonar.projectName="Hello World"
+                                    '''
+                                }
+                            }
+                        }  
 
                         stage('Deploy') {
                             steps {
